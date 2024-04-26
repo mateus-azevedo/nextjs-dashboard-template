@@ -33,14 +33,14 @@ export default function Page() {
             src="/hero-desktop.png"
             width={1000}
             height={760}
-            className="hidden md:block"
+            className="hidden md:block" // hidden to all screen bellow md(max-width: 768px) and above show the image
             alt="Screenshots of the dashboard project showing desktop version"
           />
           <Image
             src="/hero-mobile.png"
             width={560}
             height={620}
-            className='block md:hidden'
+            className='block md:hidden' // show to all screen bellow md(max-width: 768px) and above hidden the image
             alt='Screenshots of the dashboard project showing mobile version'
           />
         </div>
