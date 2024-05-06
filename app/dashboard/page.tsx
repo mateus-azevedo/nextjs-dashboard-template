@@ -9,6 +9,7 @@ import {
 } from '@/app/lib/data';
 
 export default async function Page() {
+  //TODO maybe implement promiseAll method to this request's below
   const revenue = await fetchRevenue();
   const latestInvoices = await fetchLatestInvoices();
   const {
