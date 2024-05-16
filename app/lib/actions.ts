@@ -78,7 +78,11 @@ export async function createInvoice(prevState: State, formData: FormData) {
 
 const UpdateInvoice = FormSchema.omit({ id: true, date: true });
 
-export async function updateInvoice( id: string, prevState: State, formData: FormData) {
+export async function updateInvoice(
+  id: string,
+  prevState: State,
+  formData: FormData,
+) {
   // Validate form fields using Zod
   const validatedFields = UpdateInvoice.safeParse({
     customerId: formData.get('customerId'),
@@ -90,12 +94,12 @@ export async function updateInvoice( id: string, prevState: State, formData: For
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
-      message: 'Missing Fields. Failed to update invoice'
-    }
+      message: 'Missing Fields. Failed to update invoice',
+    };
   }
-  
+
   // Prepare data for insertion into the database
-  const {amount, customerId, status} = validatedFields.data;
+  const { amount, customerId, status } = validatedFields.data;
   /**
    * It's a good practice to store monetary values in cents in your database to
    * eliminate JavaScript floating-point errors and ensure greater accuracy.
