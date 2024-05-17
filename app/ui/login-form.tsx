@@ -74,6 +74,9 @@ export default function LoginForm() {
             </>
           )}
         </div>
+        <p className='text-sm outline-2'>Login Account Test:</p>
+        <p className='text-sm outline-2'>user@nextmail.com</p>
+        <p className='text-sm outline-2'>123456</p>
       </div>
     </form>
   );
