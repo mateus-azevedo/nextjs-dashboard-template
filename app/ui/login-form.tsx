@@ -7,9 +7,10 @@ import {
   KeyIcon,
   ExclamationCircleIcon,
 } from '@heroicons/react/24/outline';
-import { ArrowRightIcon } from '@heroicons/react/20/solid';
+import { ArrowRightIcon, ArrowUturnLeftIcon } from '@heroicons/react/20/solid';
 import { Button } from './button';
 import { authenticate } from '@/app/lib/actions';
+import Link from 'next/link';
 
 export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
@@ -62,6 +63,7 @@ export default function LoginForm() {
           </div>
         </div>
         <LoginButton />
+        <BackButton />
         <div
           className="flex h-8 items-end space-x-1"
           aria-live="polite"
@@ -89,5 +91,16 @@ function LoginButton() {
     <Button className="mt-4 w-full" aria-disabled={pending}>
       Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
     </Button>
+  );
+}
+
+function BackButton() {
+  return (
+    <Link
+      href="/"
+      className="mt-4 flex h-10 w-full items-center rounded-lg bg-gray-400 px-4 text-sm font-medium text-white transition-colors hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-500 active:bg-gray-600 aria-disabled:cursor-not-allowed aria-disabled:opacity-50"
+    >
+      Back <ArrowUturnLeftIcon className="ml-auto h-5 w-5 text-gray-50" />
+    </Link>
   );
 }
